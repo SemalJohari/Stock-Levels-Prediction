@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grocery Stock Levels Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="alert alert-success alert-dismissible fade show text-center mb-0" role="alert">
+      <strong>Grocery Stock Levels Prediction Model</strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand text-warning" href="#">Grocery Stock Levels Prediction</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Analysis</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">About us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Contact us</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+    <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../static/img/image1.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block bg-dark">
+        <h5>Stock Levels Prediction</h5>
+        <p>Prediction of Stock Levels of Groceries on the basis of Data from IOT Sensors in the Storage Cell</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="../static/img/image2.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block bg-dark">
+        <h5>Stock Levels Prediction</h5>
+        <p>Prediction of Stock Levels of Groceries on the basis of Data from IOT Sensors in the Storage Cell</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="../static/img/image3.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block bg-dark">
+        <h5>Stock Levels Prediction</h5>
+        <p>Prediction of Stock Levels of Groceries on the basis of Data from IOT Sensors in the Storage Cell</p>
+      </div>
+    </div>
+    </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="container">
+      <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <p class="fs-5 text-muted">
+          <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h6 class="display-4 fw-normal">Get the stock levels predicted.</h6>
+      <p class="fs-5 text-muted">This gives the results from a regression model built to predict the stock levels 
+        of Groceries from a hypothetical Grocery enterprise. The data used for training the model is the sales data, 
+      along with the data from IOT sensors present in storage cells of the enterprise.</p>
+    </p> 
+    {% if prediction_text %} 
+    <p class="text-danger"><b>{{ prediction_text }}</b></p>
+    {% endif %}
+      </div>
+      <div class="container">
+        <form action="/" method="POST">
+          <p>
+            <label class="form-label">Temperature of Storage Cell</label>
+            <select class="form-select" id="temperature" name="temperature" aria-label="Default select example">
+              <option selected>--Select Temperature--</option>
+              <option value="-9.03">-9.03</option>
+              <option value="-541.25">-541.25</option>
+              <option value="-421.14">-421.14</option>
+              <option value="-413.14">-413.14</option>
+              <option value="-405.13">-405.13</option>
+              <option value="-378.73">-378.73</option>
+              <option value="-361.98">-361.98</option>
+              <option value="-341.51">-341.51</option>
+              <option value="-334.89">-334.89</option>
+              <option value="-332.8">-332.8</option>
+              <option value="-311.47">-311.47</option>
+              <option value="-303.86">-303.86</option>
+              <option value="-300.39">-300.39</option>
+              <option value="-263.05">-263.05</option>
+              <option value="-235.95">-235.95</option>
+              <option value="-234.37">-234.37</option>
+              <option value="-224.71">-224.71</option>
+              <option value="-224.66">-224.66</option>
+              <option value="-222.73">-222.73</option>
+              <option value="-211.87">-211.87</option>
+              <option value="-200.41">-200.41</option>
+              <option value="-171.92">-171.92</option>
+              <option value="-170.2">-170.2</option>
+              <option value="-158.09">-158.09</option>
+              <option value="-142.98">-142.98</option>
+              <option value="-135.76">-135.76</option>
+              <option value="-123.33">-123.33</option>
+              <option value="-122.27">-122.27</option>
+              <option value="-119.7">-119.7</option>
+              <option value="-114.66">-114.66</option>
+              <option value="-112.18">-112.18</option>
+              <option value="-111.58">-111.58</option>
+              <option value="-102.94">-102.94</option>
+              <option value="-88.79">-88.79</option>
+              <option value="-88.27">-88.27</option>
+              <option value="-86.31">-86.31</option>
+              <option value="-85.23">-85.23</option>
+              <option value="-76.94">-76.94</option>
+              <option value="-76.12">-76.12</option>
+              <option value="-69.42">-69.42</option>
+              <option value="-65.01">-65.01</option>
+              <option value="-61.48">-61.48</option>
+              <option value="-59.64">-59.64</option>
+              <option value="-58.92">-58.92</option>
+              <option value="-53.32">-53.32</option>
+              <option value="-51.27">-51.27</option>
+              <option value="-33.75">-33.75</option>
+              <option value="-31.46">-31.46</option>
+              <option value="-25.31">-25.31</option>
+              <option value="-22.61">-22.61</option>
+              <option value="-19.33">-19.33</option>
+              <option value="-16.9">-16.9</option>
+              <option value="-9.03">-9.03</option>
+              <option value="-1.3">-1.3</option>
+              <option value="12.17">12.17</option>
+              <option value="28.28">28.28</option>
+              <option value="40.46">40.46</option>
+              <option value="43.16">43.16</option>
+              <option value="52.3">52.3</option>
+              <option value="55.55">55.55</option>
+              <option value="56.65">56.65</option>
+              <option value="97.56">97.56</option>
+              <option value="102.9">102.9</option>
+              <option value="108.87">108.87</option>
+              <option value="116.49">116.49</option>
+              <option value="120.04">120.04</option>
+              <option value="146.4">146.4</option>
+              <option value="177.54">177.54</option>
+              <option value="184.92">184.92</option>
+              <option value="196.4">196.4</option>
+              <option value="197.28">197.28</option>
+              <option value="207.65">207.65</option>
+              <option value="237.81">237.81</option>
+              <option value="288.39">288.39</option>
+              <option value="316.03">316.03</option>
+              <option value="343.7">343.7</option>
+              <option value="393.">393.0</option>
+              <option value="459.5">459.5</option>
+            </select>
+          </p>
+          <p>
+            <label class="form-label">Price of one Unit</label>
+            <select class="form-select" id="unit_price" name="unit_price" aria-label="Default select example">
+              <option selected>--Select Unit Price--</option>
+              <option value="0.19">0.19</option>
+              <option value="0.49">0.49</option>
+              <option value="1.19">1.19</option>
+              <option value="1.49">1.49</option>
+              <option value="1.99">1.99</option>
+              <option value="2.19">2.19</option>
+              <option value="2.49">2.49</option>
+              <option value="2.99">2.99</option>
+              <option value="3.19">3.19</option>
+              <option value="3.49">3.49</option>
+              <option value="3.99">3.99</option>
+              <option value="4.19">4.19</option>
+              <option value="4.49">4.49</option>
+              <option value="4.99">4.99</option>
+              <option value="5.19">5.19</option>
+              <option value="5.49">5.49</option>
+              <option value="5.99">5.99</option>
+              <option value="6.19">6.19</option>
+              <option value="6.49">6.49</option>
+              <option value="6.99">6.99</option>
+              <option value="7.19">7.19</option>
+              <option value="7.49">7.49</option>
+              <option value="7.99">7.99</option>
+              <option value="8.19">8.19</option>
+              <option value="8.49">8.49</option>
+              <option value="8.99">8.99</option>
+              <option value="9.19">9.19</option>
+              <option value="9.49">9.49</option>
+              <option value="9.99">9.99</option>
+              <option value="10.19">10.19</option>
+              <option value="10.49">10.49</option>
+              <option value="10.99">10.99</option>
+              <option value="11.19">11.19</option>
+              <option value="11.49">11.49</option>
+              <option value="11.99">11.99</option>
+              <option value="12.19">12.19</option>
+              <option value="12.49">12.49</option>
+              <option value="12.99">12.99</option>
+              <option value="13.19">13.19</option>
+              <option value="13.49">13.49</option>
+              <option value="13.99">13.99</option>
+              <option value="14.19">14.19</option>
+              <option value="14.49">14.49</option>
+              <option value="14.99">14.99</option>
+              <option value="15.19">15.19</option>
+              <option value="15.49">15.49</option>
+              <option value="15.99">15.99</option>
+              <option value="16.19">16.19</option>
+              <option value="16.49">16.49</option>
+              <option value="16.99">16.99</option>
+              <option value="17.19">17.19</option>
+              <option value="17.99">17.99</option>
+              <option value="18.19">18.19</option>
+              <option value="18.49">18.49</option>
+              <option value="18.99">18.99</option>
+              <option value="19.19">19.19</option>
+              <option value="19.49">19.49</option>
+              <option value="19.99">19.99</option>
+              <option value="20.19">20.19</option>
+              <option value="20.49">20.49</option>
+              <option value="20.99">20.99</option>
+              <option value="21.99">21.99</option>
+              <option value="22.19">22.19</option>
+              <option value="23.99">23.99</option>
+            </select>
+          </p>
+          <p>
+            <label class="form-label">Quantity of Groceries</label>
+            <select class="form-select" id="quantity" name="quantity" aria-label="Default select example">
+              <option selected>--Select the Quantity--</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+            </select>
+          </p>
+          <p>
+            <label class="form-label">Day of the month</label>
+            <select class="form-select" id="timestamp_day_of_month" name="timestamp_day_of_month" aria-label="Default select example">
+              <option selected>--Select the Date--</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+            </select>
+          </p>
+          <p>
+            <label class="form-label">Day of the Week</label>
+            <select class="form-select" id="timestamp_day_of_week" name="timestamp_day_of_week" aria-label="Default select example">
+              <option selected>--Select the day of the week--</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              </select>
+          </p>
+          <p>
+            <label class="form-label">Hour of the Sale</label>
+            <select class="form-select" id="timestamp_hour" name="timestamp_hour" aria-label="Default select example">
+              <option selected>--Select the Hour--</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+            </select>
+          </p>
+          <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+        <br><br><br><br><br>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>
